@@ -45,7 +45,13 @@ const Header = () => {
   }
   const navigationHandler=(e)=>{
       if(e.target.innerText&&e.target.tagName==="LI"){
-        navigate(`/explore/${e.target.innerText}`) 
+        if(e.target.innerText==="Movies"){
+          navigate(`/explore/movie`)     
+        }
+        else if(e.target.innerText==="TvShows"){
+          navigate(`/explore/tv`) 
+        }
+        
         setMobileMenu(false)   
       }
 

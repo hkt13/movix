@@ -9,8 +9,14 @@ const options = {
 }
 
 export const fetchDataFromApi = async(url,params)=>{
-    const urlWithParams = BASE_URL + url;
-try {
+    const urlWithParams = new URL(BASE_URL + url);
+    if(params){
+        if(params){
+            Object.keys(params).forEach(key => urlWithParams.searchParams.append(key, params[key]));
+
+    }
+    }
+        try {
 const response = await fetch(urlWithParams,options);
 const data = await response.json();
 return data;    
